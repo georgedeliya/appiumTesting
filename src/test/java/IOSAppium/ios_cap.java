@@ -1,8 +1,10 @@
-package youtubeAppium;
+package IOSAppium;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -19,12 +21,14 @@ public class ios_cap {
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "IOS");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
-		cap.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.SAFARI);
-		
-//		cap.setCapability(MobileCapabilityType.APP, "/Users/Gosha/Desktop/UICatalog.app");
+//		cap.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.SAFARI);
+		cap.setCapability(MobileCapabilityType.APP, "/Users/Gosha/Desktop/UICatalog.app");
 		driver=new IOSDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),cap);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
+	
+	
 	}
 
 
